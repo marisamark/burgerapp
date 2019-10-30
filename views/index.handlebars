@@ -6,22 +6,20 @@
 		</div>
 		<div class="col-md-6 text-center" class="task">
 			<div class="row">
-				<!--
-
-				use handlebars to display burgers not yet devoured
-
-			-->
+				{{#each this.burgers}}
+				{{#unless this.devoured}}
+				<div class="row mt-3 mb-3">		
+						<button type="submit" class='btn btn-success btn-margin'> {{this.burger_name}}</button>				
+				</div>
+				{{/unless}}
+				{{/each}}
 			</div>
 		</div>
 		<div class="col-md-6 text-center" class="task">
-			<!--
 
-					use handlebars to display each devoured burger 
-
-			-->
-			  {{#each burger_data}}
+			  {{#each this.burgers}}
 			  	{{#if this.devoured}}
-			  		<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
+			  		<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}">
 				{{/if}}
 			  {{/each}}
 		</div>
