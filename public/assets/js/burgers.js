@@ -2,34 +2,31 @@
 
 $(document).ready(function () {
 
-  $(".devour").on("click", function (event) {
-    event.preventDefault();
+//   $(".devour").on("click", function (event) {
+//     event.preventDefault();
 
-    var burger_id = $(this).children(".burger_id").val();
-    console.log(burger_id);
+//     var burger_id = $(this).children(".burger_id").val();
+//     console.log(burger_id);
 
-    /*
+//     /*
 
-      use api to put burger here, server should change to devoured
+//       use api to put burger here, server should change to devoured
 
-      then reload page to display burger in proper column
+//       then reload page to display burger in proper column
 
-    */
+//     */
 
-  });
-});
-
-
-
+//   });
+// });
 
 
 $(function () {
-  $(".devour").on("click", function (event) {
+  $(".change-devoured").on("click", function (event) {
     var id = $(this).data("id");
-    var newDevoured = $(this).data("newdevoured");
+    // var newDevoured = $(this).data("newdevoured");
 
     var newDevouredState = {
-      devoured: newDevoured
+      devoured: 1
     };
 
     // Send the PUT request.
@@ -66,4 +63,5 @@ console.log('burger', newBurger);
       }
     );
   });
+});
 });

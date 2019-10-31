@@ -68,4 +68,31 @@ h1 {
 }
 
 
+#left {
+float: left;
+margin-left: 10%;
+}
 
+#right{
+float: right;
+margin-right: 10%;
+
+}
+
+#middle {
+position: absolute;
+bottom: 0px;
+}
+
+#title {
+  text-align: center;
+}
+
+.h4 {
+  text-align: center;
+}
+
+img {
+  margin-left: 50%;
+  margin-right: 50%;
+}

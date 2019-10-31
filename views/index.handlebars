@@ -1,39 +1,43 @@
-<div class="container">
-	<div class="row">
-		<div class="col-md-12 text-center" id="top-bar">
-			<img src="/assets/images/burger.png" alt="burger" />
-			<h1> Eat-Da-Burger! </h1>
-		</div>
-		<div class="col-md-6 text-center" class="task">
-			<div class="row">
-				{{#each this.burgers}}
-				{{#unless this.devoured}}
-				<div class="row mt-3 mb-3">		
-						<button type="submit" class='btn btn-success btn-margin'> {{this.burger_name}}</button>				
-				</div>
-				{{/unless}}
-				{{/each}}
-			</div>
-		</div>
-		<div class="col-md-6 text-center" class="task">
+<div class="col-md-12 text-center" id="top-bar">
+	<img src="../public/assets/img/burger.png" alt="burger" />
+	<h1 id="title"> Eat-Da-Burger! </h1>
+	<h3 class="h4">Enter a burger you want to eat and click the "Submit" button.</h3>
+	
+<div class="row">
 
-			  {{#each this.burgers}}
-			  	{{#if this.devoured}}
-			  		<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}">
-				{{/if}}
-			  {{/each}}
-		</div>
+	<div class="col-6 text-center enter_section">
+
+		<form action="/burgers/create" method="POST">
+			<input type="text" class="form-control" name="burger_name" value="" id="enter_text">
+			<br>
+			<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
+		</form>
+	</div>
+</div>
+</div>
+
+
+<div class="row">
+	<div class="col-6" id="left" class="task">
+		<h2>Burgers to eat:</h2>
+		<ul>
+			{{#each this.burgers}}
+			{{#unless this.devoured}}
+			{{> burgers/burger-block devoured=false}}
+			{{/unless}}
+			{{/each}}
+		</ul>
 	</div>
 </div>
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-12 text-center enter_section">
-			<form action="/burgers/create" method="POST">
-				<input type="text" class="form-control" name="burger_name" value="" id="enter_text">
-				<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
-			</form>
-			<p>Enter a burger you want to eat Click the "Submit" button.</p>
-		</div>
-	</div>
+<div id="right" class="col-6" class="task">
+	<h2>Burgers that were devoured:</h2>
+	<ul>
+		{{#each this.burgers}}
+		{{#if this.devoured}}
+		{{> burgers/burger-block devoured=true}}
+		{{/if}}
+		{{/each}}
+	</ul>
 </div>
+
