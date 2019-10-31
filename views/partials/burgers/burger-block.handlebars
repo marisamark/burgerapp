@@ -1,8 +1,13 @@
 <li>
 	{{burger_name}}
 
-	<button class="change-devoured" data-id="{{id}}" data-devoured="{{true}}">
+	{{!-- <button class="change-devoured" data-id="{{id}}" data-devoured="{{true}}">
 		{{#if devoured}}Yum!{{else}}Devour!{{/if}}
-	</button>
+	</button> --}}
 
+	<form action="/burgers/update" method="post">
+		<input type="hidden" name="devoured" value="{{newDevoured}}">
+		<input type="hidden" name="id" value="{{id}}">
+		<input type="submit" value="{{#if devoured}}Order More{{else}}Devour{{/if}}">
+	</form>
 </li>
